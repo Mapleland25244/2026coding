@@ -1,0 +1,11 @@
+# week14-2b.py 學習計畫 1D DP 第1題 動態規劃
+# LeetCode 1137. N-th Tribonacci Number
+from functools import *
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        a = [0, 1, 1]
+        @cache # 函式呼叫函式 (遞迴) 不重複問答案
+        def helper(i):
+            if i<3: return a[i]
+            return helper(i-1) + helper(i-2) + helper(i-3)
+        return helper(n)
